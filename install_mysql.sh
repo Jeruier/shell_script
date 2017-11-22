@@ -2,6 +2,7 @@
 #安装mysql
 #@author Zhangrui
 #created 2017/11/9
+#email 1170870297@qq.com
 MYSQL_PATH='/usr/local/mysql'    #mysql所在目录 默认情况下是安装在/usr/local/mysql
 MYSQL_DATA_PATH='/data/mysql'   #mysql数据存放目录
 UNZIPED_MYSQL_PATH='' 		 #安装包解压后用于安装mysql的mysql安装包目录
@@ -183,8 +184,17 @@ export PATH
 echo "使/etc/profile里的配置立即生效"
 source /etc/profile
 
-echo "mysql安装成功，设置root初始密码为:${PASSWORD}"
 
+read -s -p '请设置mysql的root账号密码:' on_key_pwd
+if [ ${on_key_pwd} ]; then
+	echo  ''
+	PASSWORD=${on_key_pwd}
+else
+	echo '未输入密码，将使用默认密码!'
+fi
+
+
+echo "密码成功设为:${PASSWORD}"
 
 mysqladmin -u root password "${PASSWORD}"
 
