@@ -1,4 +1,4 @@
-#!/bin/bash=
+#!/bin/bash
 #nginx编译安装
 #@author Zhangrui
 #created 2017/11/22
